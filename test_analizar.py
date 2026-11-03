@@ -28,3 +28,7 @@ class AnalizarTests(unittest.TestCase):
     def test_columna_ausente(self):
         with self.assertRaisesRegex(ValueError, "Fila 1, columna domgross"):
             validar(StringIO("imdb,title,year,budget\ntt1,Una,2001,20\n"))
+
+    def test_titulo_con_marcador_de_dato_faltante(self):
+        with self.assertRaisesRegex(ValueError, "Fila 2, columna title"):
+            self.leer("tt0000001,#N/A,2001,20,100\n")

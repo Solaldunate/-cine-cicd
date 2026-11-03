@@ -8,7 +8,7 @@ from pathlib import Path
 
 CAMPOS = ("imdb", "title", "year", "budget", "domgross")
 RAIZ = Path(__file__).resolve().parent
-ESTUDIANTE = "soledado"
+ESTUDIANTE = "Soledad"
 
 
 def dinero(texto):
@@ -46,7 +46,7 @@ def validar(archivo):
                         valor = texto
                     elif campo == "title":
                         valor = unescape(texto).strip()
-                        if not valor:
+                        if valor.upper() in ("", "NA", "#N/A"):
                             raise ValueError
                     elif campo == "year":
                         valor = int(texto)
